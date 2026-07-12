@@ -1,17 +1,7 @@
-import ProductCard from "./ProductCard";
+import TodoApp from "./TodoApp";
 
 function App() {
-  return (
-    <div>
-      <h1 style={{ textAlign: "center" }}>React Product Card</h1>
-
-      <ProductCard
-        name="Wireless Headphones"
-        price={2999}
-        description="High-quality Bluetooth headphones with noise cancellation."
-      />
-    </div>
-  );
+  return <TodoApp />;
 }
 
 export default App;
