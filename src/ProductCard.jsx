@@ -1,6 +1,9 @@
+import { useState } from "react";
 import headphones from "./assets/headphones.jpg";
 
-function ProductCard() {
+function ProductCard({ name, price, description }) {
+  const [liked, setLiked] = useState(false);
+
   return (
     <div
       style={{
@@ -11,12 +14,11 @@ function ProductCard() {
         borderRadius: "10px",
         textAlign: "center",
         boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-        backgroundColor: "#fff",
       }}
     >
       <img
         src={headphones}
-        alt="Wireless Headphones"
+        alt={name}
         style={{
           width: "250px",
           height: "200px",
@@ -25,13 +27,11 @@ function ProductCard() {
         }}
       />
 
-      <h2>Wireless Headphones</h2>
+      <h2>{name}</h2>
 
-      <p>
-        High-quality Bluetooth headphones with noise cancellation.
-      </p>
+      <p>{description}</p>
 
-      <h3 style={{ color: "green" }}>₹2999</h3>
+      <h3 style={{ color: "green" }}>₹{price}</h3>
 
       <button
         style={{
@@ -41,9 +41,21 @@ function ProductCard() {
           border: "none",
           borderRadius: "5px",
           cursor: "pointer",
+          marginRight: "10px",
         }}
       >
         Buy Now
+      </button>
+
+      <button
+        onClick={() => setLiked(!liked)}
+        style={{
+          padding: "10px 20px",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+      >
+        {liked ? "❤️ Liked" : "🤍 Like"}
       </button>
     </div>
   );
